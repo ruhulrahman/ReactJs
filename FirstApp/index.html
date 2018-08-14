@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      function FirstFunc(props){
+        //console.log(props.name);
+        return (
+          <div>
+            <h1>My name is {props.name}.</h1>
+            <SecFunc age={props.age} adult="yes"/>
+          </div>
+          );
+
+          
+      }
+
+      function SecFunc(props){
+        //console.log(props.age);
+        return (<h1>My age is {props.age}. Adult : {props.adult}</h1>);
+      }
+
+      ReactDOM.render(
+        <div>
+          <FirstFunc name="Ruhul Amin" age="24"/>
+          <FirstFunc name="Rasel" age="26"/>
+        </div>,
+        document.getElementById('root')
+      );
+
+    </script>
+
+  </body>
+</html>
