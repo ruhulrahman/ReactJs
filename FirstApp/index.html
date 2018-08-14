@@ -18,16 +18,21 @@
         return (
           <div>
             <h1>My name is {props.name}.</h1>
-            <SecFunc age={props.age} adult="yes"/>
+            <MyAge age={props.age} adult="yes" location="Dhaka"/>
           </div>
-          );
-
-          
+          );          
       }
 
-      function SecFunc(props){
-        //console.log(props.age);
-        return (<h1>My age is {props.age}. Adult : {props.adult}</h1>);
+      class MyAge extends React.Component{
+        render(){
+          var props = this.props;
+          return (
+            <div>
+              <h3>My age is: {props.age}. Adult : {props.adult}</h3>
+              <p>Location: {this.props.location}</p>
+            </div>
+          );
+        }
       }
 
       ReactDOM.render(
