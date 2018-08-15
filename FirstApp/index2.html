@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      class HotNews extends React.Component{
+        constructor(props){
+          super(props);
+          this.state = {
+            totalEditCount: 0
+          };
+        }
+
+        edit(){
+          alert("Edit button clicked");
+          this.setState({
+            totalEditCount: this.state.totalEditCount + 1
+          });
+        }
+
+        delete(){
+          alert("Delete button clicked");
+        }
+
+        render(){
+          const props = this.props;
+          const totalEditCount = this.state.totalEditCount;
+          return(
+            <div className="container">
+              <img src={this.props.image} width="250" height="150"/>
+              <h1>{this.props.children}</h1>
+              <div className="action">
+                <button className="edit" onClick={() => this.edit()}>Edit</button>
+                <button className="delete" onClick={this.delete}>Delete</button>
+              </div>
+              {!!totalEditCount && (<p>Total edit button clicked: {totalEditCount}</p>)}
+            </div>
+          )
+        }
+      }
+
+      ReactDOM.render(
+        <div>
+          <HotNews children image="https://ichef.bbci.co.uk/news/660/cpsprodpb/11F5D/production/_102656537_1288af60-cbdf-4a69-9fcc-68d034a7b2b7.jpg">Today is 15th August</HotNews>
+
+          <HotNews children>Yesterday was 14th August</HotNews>
+        </div>,
+        document.getElementById('root')
+      );
+
+    </script>
+
+  </body>
+</html>

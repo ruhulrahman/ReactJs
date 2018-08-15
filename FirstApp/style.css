@@ -1,0 +1,15 @@
+.container{
+	background: gray;
+}
+.action{
+
+}
+.edit{
+	background: green;
+	padding:10px 20px;
+	margin-right: 10px;
+}
+.delete{
+	background: red;
+	padding:10px;
+}
